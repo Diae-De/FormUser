@@ -18,6 +18,8 @@ function DashBoardScreen({getUserId,userId}) {
     }
     const [values,setValues] = useState(initialFieldValues)
 
+    const [searchTerm,setSearchTerm] = useState("")
+
     const [users,setUsers]=useState([])
     const [loading,setLoading] = useState(false)
     const refe = fb.firestore().collection("users")
@@ -69,8 +71,17 @@ function DashBoardScreen({getUserId,userId}) {
     <div className="dashboard">
         <div className="dashboard-user">
           <h1>Your DashBoard</h1>
+          <div className="searchbar">
+            <input type="text" placeholder="Search..." onChange={(e)=>{setSearchTerm(e.target.value)}}/>
+          </div>
           <div className="userInfo">
-            {users.map((user)=>{
+            {users.filter((val)=>{
+              if(searchTerm === ""){
+                return val
+              }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
+                return val
+              }
+            }).map((user)=>{
               return<div key={user.id} className="mapUser">
                   <div className="User">
                   <div className="name-back">
