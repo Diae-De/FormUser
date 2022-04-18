@@ -1,0 +1,215 @@
+.dashboard{
+    color: #fff;
+    background: rgb(19, 19, 19);
+    width: 100%;
+    height: 100%;
+}
+
+.dashboard-user{
+    min-height: 100vh;
+}
+
+.mapUser{
+    margin-bottom:1em;
+}
+
+.userInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    margin-top: 1em;
+}
+
+.icon-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.userList{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 20px;
+    flex-direction: column;
+    font-family: 'Akshar', sans-serif;
+    transition: all 250ms ease-in-out;
+    margin-top: -3em;
+   
+}
+
+.name-back{
+    display: flex;
+    font-family: 'Akshar', sans-serif;
+    justify-content: center;
+    background: rgb(26, 26, 26);
+    width: 100vh;
+    height: 100%;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.User p{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+
+h1{
+    font-family: 'Arvo', serif;
+    padding-top: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul{
+    list-style: none;
+}
+
+ul li{
+    font-size:25px;
+    margin: 10px 0;
+    display: block;
+    padding: 0em;
+    width: 30em;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.icon-open{
+    cursor: pointer;
+    margin-top: 1em;
+    display: block;
+}
+
+.icon-open-active{
+    display: none;
+}
+
+.userlist-unactive{
+    display:none;
+}
+
+.userlist-active{
+    background: rgb(26, 26, 26);
+    margin-top: 0em;
+}
+
+.icon-close{
+    display: none;
+}
+
+.icon-close-active{
+    margin-top: 1em;
+    display: block;
+    cursor: pointer;
+}
+
+.recommendation-Form{
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0em;
+    width: 0em;
+    border-radius:5px;
+}
+
+.recom-desc{
+    border: none;
+    margin-bottom: 1em;
+}
+
+h3{
+    margin-top: 1em;
+}
+
+.recommendation-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.recommendation-btn button{
+    margin-top: 1em;
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+    font-family: 'Akshar', sans-serif;
+    cursor: pointer;
+    width: 15em;
+    transition: all 250ms ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recommendation-btn button:hover{
+    background: transparent;
+    color: #fff;}
+
+.status-select{
+    width: 15em;
+    height: 100%;
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Akshar', sans-serif;
+    color: #000;
+    outline: none;
+    cursor: pointer;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+@media screen and (max-width:500px) {
+    .name-back{
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .mapUser{
+        width: 100%;
+    }
+
+    .userlist-active{
+        width: 100%;
+        margin-top: 0em;
+    }
+
+    ul li{
+        font-size:20px;
+        margin: 5px 0;
+        width: 15em;
+    }
+
+    ul{
+        margin-left: 1em;
+    }
+
+    .recommendation{
+        width: 10em;
+    }
+
+    .recommendation-btn button{
+        width: 10em;
+        padding: 10px;
+    }
+
+    .userList{
+        padding: 20px 0;
+        margin-top: -1em;
+    }
+}
