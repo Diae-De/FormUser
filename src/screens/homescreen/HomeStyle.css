@@ -124,3 +124,33 @@ textarea{
         width: 25em;
     }
 }
+
+@media screen and (max-width:375px) {
+    .fillup-form{
+        font-size: 12px;
+    }
+
+    .select-drop{
+        font-size: 12px;
+    }
+
+    .inputUser{
+        font-size: 12px;
+    }
+
+    .select-typemat{
+        font-size: 12px;
+    }
+
+    .select-etat{
+        font-size: 12px;
+    }
+
+    .txtAreaHome{
+        font-size: 12px;
+    }
+
+    .btn-submit{
+        font-size: 12px;
+    }
+}

@@ -57,9 +57,9 @@ function HomeScreen() {
           <option value="Society">Society</option>
           <option value="Person">Person</option>
         </select>
-        <input onChange={handleInputChange} value={values.nome} type="text" name="nome" placeholder={`Enter You ${values.drop ===  ""? "Society" : values.drop} Name`} required/>
-        <input onChange={handleInputChange} value={values.email}  type="email" name="email" placeholder="Enter Your Email" required/>
-        <input onChange={handleInputChange} value={values.tell} type="tel" name="tell" placeholder="Enter Your Phone Number" onKeyPress={
+        <input onChange={handleInputChange} className="inputUser" value={values.nome} type="text" name="nome" placeholder={`Enter You ${values.drop ===  ""? "Society" : values.drop} Name`} required/>
+        <input onChange={handleInputChange} className="inputUser" value={values.email}  type="email" name="email" placeholder="Enter Your Email" required/>
+        <input onChange={handleInputChange} className="inputUser" value={values.tell} type="tel" name="tell" placeholder="Enter Your Phone Number" onKeyPress={
           (event) => {if (!/[0-9]/.test(event.key)) {
           event.preventDefault();}}} required/>
         <select name="type" className="select-typemat" value={values.type} onChange={handleInputChange} required>
@@ -74,9 +74,9 @@ function HomeScreen() {
           <option value="Working" >Working</option>
           <option value="Broken">Broken</option>
         </select> 
-        <textarea onChange={handleInputChange} value={values.des} name="des" rows="7" placeholder="Problem Description" required></textarea> 
-        <input onChange={handleInputChange} value={values.date} type="date" name="date" required/>
-        <input type="text" name="unic" value={values.unic} readOnly/>
+        <textarea onChange={handleInputChange} className="txtAreaHome" value={values.des} name="des" rows="7" placeholder="Problem Description" required></textarea> 
+        <input onChange={handleInputChange} className="inputUser" value={values.date} type="date" name="date" required/>
+        <input type="text" className="inputUser" name="unic" value={values.unic} readOnly/>
         <button type="submit" className="btn-submit">Submit</button>
         </form>
     </div>
