@@ -1,21 +1,63 @@
+.Wrapflex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: rgb(26, 26, 26);
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    padding-top: 1em;
+}
+
+.wrapFlex-welcom{
+    z-index: 3;
+    width:100%;
+    height:100%;
+    position: relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.aboutus{
+    position: absolute;
+    z-index: 2;
+    color:white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.aboutus h1{
+    font-size:4em;
+    font-family: 'Quicksand', sans-serif;
+    font-weight:700;
+    margin-bottom:0.5em;
+    text-align: center;
+}
+
+.aboutus p{
+    font-size:1em;
+    font-family: 'Quicksand', sans-serif;
+    margin-bottom:0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .home-form{
-    background: url("../../../public/images/resaux.jpg") no-repeat center center / cover;
     height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1000;
+    background: rgb(26, 26, 26);
 }
-
-.home-form::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-  }
 
 .select-drop{
     width: 20em;
@@ -31,19 +73,20 @@
 }
 
 .fillup-form{
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.199);
     padding: 5em;
     width: 40em;
     border-radius:5px;
+    background:linear-gradient(to top left,#1e3c72,#2a5298)
 }
 
-input{
+.inputUser{
     margin-top:1em;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
     width: 15em;
     border: none;
     height: 100%;
@@ -86,14 +129,16 @@ input{
 }
 
 select{
-    border:none;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    border: none;
 }
 
 textarea{
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
     width:20em;
     padding: 1.5rem;
     border-radius:0.5rem;
-    border: 2px solid silver;
+    border: none;
     resize: none;
     color:black;
     background: #fff;
@@ -102,32 +147,67 @@ textarea{
 }
 
 .btn-submit{
-    margin-top: 1em;
-    border: none;
-    padding: 10px;
-    padding-top: 1em;
-    font-size: 15px;
     font-family: 'Akshar', sans-serif;
+    padding: 0.8em 5em;
+    border:none;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    margin-top: 1.5em;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #2a5298;
+    color: white;
     cursor: pointer;
-    width: 20em;
     transition: all 250ms ease-in-out;
 }
 
 .btn-submit:hover{
-    background:  black;
-    color: #fff;
+    background-color: #1e3c72;
+}
+
+
+@media screen and (max-width:684px) {
+    .Wrapflex h1{
+        font-size: 1.5em;
+    }
+    
+    .wrapFlex-welcom{
+        display: none;
+    }
+
+    .home-form{
+        width: 100%;
+    }
+
+    .home-form::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: -1;
+      }
+
+      .fillup-form{
+        position: absolute;
+        padding: 5em;
+    }
+    
 }
 
 @media screen and (max-width:500px) {
     .fillup-form{
-        padding: 1em;
-        width: 25em;
+        padding: 4em;
+        width: 24em;
     }
+
 }
 
 @media screen and (max-width:375px) {
     .fillup-form{
         font-size: 12px;
+        width: 24em;
+        height: 80%;
     }
 
     .select-drop{

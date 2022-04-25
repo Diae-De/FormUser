@@ -1,0 +1,93 @@
+.userDashboard{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1.5rem;
+    width: 100%;
+    height: 100vh;
+}
+
+.login-head{
+    display: flex;
+    font-family: 'Quicksand', sans-serif;
+    margin-bottom: 1em;
+    justify-content: center;
+    align-items: center;
+    font-size:4em;
+}
+
+.login-input{
+    font-family: 'Akshar', sans-serif;
+    padding: 0.8em;
+    border:none;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    margin-bottom: 1.5em;
+    border-radius: 5px;
+    width: 100%;
+    height: 3em;
+    font-size: 1em;
+}
+
+.userForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.userForm form{
+    display:flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-img-login img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.login-button{
+    font-family: 'Akshar', sans-serif;
+    padding: 0.8em;
+    border:none;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    margin-bottom: 1.5em;
+    border-radius: 5px;
+    width: 100%;
+    height: 3em;
+    font-size: 1em;
+    background-color: #00bcd4;
+    color: white;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+}
+
+.login-button:hover{
+    background-color: #00acc1;
+}
+
+@media screen and (max-width:800px) {
+    .login-head{
+        font-size:3em;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .userDashboard{
+        display:flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .form-for-all-users{
+        font-size: 1em;
+    }
+}

@@ -39,7 +39,7 @@
     font-size: 20px;
     padding: 20px;
     flex-direction: column;
-    font-family: 'Akshar', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     transition: all 250ms ease-in-out;
     margin-top: -3em;
    
@@ -47,7 +47,7 @@
 
 .name-back{
     display: flex;
-    font-family: 'Akshar', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     justify-content: center;
     background: rgb(26, 26, 26);
     width: 100vh;
@@ -64,12 +64,15 @@
     font-size: 30px;
 }
 
-h1{
-    font-family: 'Arvo', serif;
-    padding-top: 1em;
+.header{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding: 2em;
+}
+
+.dashboard-header{
+    font-family: 'Quicksand', sans-serif;
 }
 
 ul{
@@ -146,7 +149,7 @@ h3{
     border: none;
     padding: 10px;
     font-size: 15px;
-    font-family: 'Akshar', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     cursor: pointer;
     width: 15em;
     transition: all 250ms ease-in-out;
@@ -166,7 +169,7 @@ h3{
     border-radius: 5px;
     padding: 10px;
     font-size: 16px;
-    font-family: 'Akshar', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     color: #000;
     outline: none;
     cursor: pointer;
@@ -180,10 +183,33 @@ h3{
     align-items: center;
 }
 
+.searchbar input{
+    margin-top:1em;
+    width: 15em;
+    border: 1px solid grey;
+    height: 100%;
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Akshar', sans-serif;
+    color: #000;
+    outline: none;
+    cursor: pointer;
+}
+
 @media screen and (max-width:500px) {
     .name-back{
         width: 100%;
         margin: 10px 0;
+    }
+
+    .header h1{
+        font-size: 30px;
+    }
+
+    .header button{
+        font-size: 15px;
     }
 
     .mapUser{

@@ -1,0 +1,42 @@
+.managerDashboard{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1.5rem;
+    width: 100%;
+    height: 100vh;
+}
+
+.managerForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.managerForm p{
+    font-family: 'Akshar', sans-serif;
+}
+
+@media screen and (max-width:800px) {
+    .login-head{
+        font-size:3em;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .managerDashboard{
+        display:flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .form-for-all-users{
+        font-size: 1em;
+    }
+}

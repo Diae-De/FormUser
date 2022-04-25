@@ -6,6 +6,7 @@ import {IoIosArrowDown,IoIosArrowUp} from 'react-icons/io'
 import {doc,deleteDoc,setDoc, updateDoc} from 'firebase/firestore'
 import {MdCloudDone} from 'react-icons/md'
 import {AiFillCloseCircle} from 'react-icons/ai'
+import { useNavigate } from 'react-router-dom'
 
 function DashBoardScreen({getUserId,userId}) {
 
@@ -16,6 +17,23 @@ function DashBoardScreen({getUserId,userId}) {
       recom:"",
       icon:""
     }
+    const [user,setUser] = useState("")
+    const navigate = useNavigate()
+
+    const authListener = ()=>{
+      fb.auth().onAuthStateChanged((user)=>{
+        if(user)
+        {
+          setUser(user)
+        }else {setUser("")
+        navigate("/manager")}
+      })
+    }
+  
+    useEffect(()=>{
+      authListener()
+    },[])
+
     const [values,setValues] = useState(initialFieldValues)
 
     const [searchTerm,setSearchTerm] = useState("")
@@ -46,7 +64,7 @@ function DashBoardScreen({getUserId,userId}) {
     },[])
 
   if(loading){
-    return <h1>Loading...</h1>
+    return <div style={{ background:"rgb(26, 26, 26)",width:"100%",height:"100vh"}}><h1 style={{color:"white",display:"flex",justifyContent:"center",fontFamily:"'Quicksand', sans-serif"}}>Loading...</h1></div>
   }
 
   const deletUser = async (id) =>{
@@ -56,6 +74,10 @@ function DashBoardScreen({getUserId,userId}) {
       console.log(err)
     }
   }
+
+  const logout = ()=>{
+    fb.auth().signOut()
+}
 
 /*   const EditUser = async (id) =>{
     const docRef = doc(db,"users",id)
@@ -70,7 +92,10 @@ function DashBoardScreen({getUserId,userId}) {
   return (
     <div className="dashboard">
         <div className="dashboard-user">
-          <h1>Your DashBoard</h1>
+          <div className="header">
+            <h1 className="dashboard-header">Your DashBoard</h1>
+            <button className="logout-btn" onClick={logout}>Logout</button>
+          </div>
           <div className="searchbar">
             <input type="text" placeholder="Search..." onChange={(e)=>{setSearchTerm(e.target.value)}}/>
           </div>
@@ -78,14 +103,14 @@ function DashBoardScreen({getUserId,userId}) {
             {users.filter((val)=>{
               if(searchTerm === ""){
                 return val
-              }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
+              }else if(val.firstname.toLowerCase().includes(searchTerm.toLowerCase())){
                 return val
               }
             }).map((user)=>{
               return<div key={user.id} className="mapUser">
                   <div className="User">
                   <div className="name-back">
-                  <p>{user.name}</p>
+                  <p>{user.firstname}</p>
                   {user.status? <MdCloudDone name="doneIcon" value={values.icon}/>:<AiFillCloseCircle name="processIcon" value={values.icon}/>}
                   <div className="icon-nav">
                   <IoIosArrowDown className={userId === user.unic ? "icon-open-active" : "icon-open"} onClick={()=>getUserId(userId ? user.unic: !userId ?  user.unic : "")}/>
@@ -99,7 +124,7 @@ function DashBoardScreen({getUserId,userId}) {
                       <li><label style={{marginRight:"0.5em"}}>Phone Number:</label>{user.tell}</li>
                       <li><label style={{marginRight:"0.5em"}}>Type:</label>{user.type}</li>
                       <li><label style={{marginRight:"0.5em"}}>State:</label>{user.etat}</li>
-                      <li><label style={{marginRight:"0.5em"}}>Description:</label>{user.des}</li>
+                      <li><label style={{marginRight:"0.5em"}}>Description:</label>{user.desc}</li>
                       <li><label style={{marginRight:"0.5em"}}>Date:</label> {user.date}</li>
                       <li><label style={{marginRight:"0.5em"}}>Unic Code:</label> {user.unic}</li>
                       <li>
