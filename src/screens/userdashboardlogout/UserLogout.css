@@ -78,3 +78,45 @@
     color:#fff;
     margin:1em;
 }
+
+.btn-mod{
+    text-decoration: none;
+    margin-top: 1em;
+    border:2px solid #fff;
+    padding:0.7em;
+    border-radius:5px;
+    background-color:transparent;
+    color:#fff;
+    cursor: pointer;
+    font-size:1em;
+    transition: all 250ms ease-in-out;
+}
+
+.btn-sup{
+    text-decoration: none;
+    margin-top: 1em;
+    margin-left: 1em;
+    border:2px solid #fff;
+    padding:0.7em;
+    border-radius:5px;
+    background-color:transparent;
+    color:#fff;
+    cursor: pointer;
+    font-size:1em;
+    transition: all 250ms ease-in-out;
+}
+
+.btn-mod:hover{
+    background-color:#fff;
+    color:#000;
+}
+
+.btn-sup:hover{
+    background-color:#fff;
+    color:#000;
+}
+
+.btn-div{
+    display: flex;
+    flex-direction: row; 
+}

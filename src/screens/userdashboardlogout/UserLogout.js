@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './UserLogout.css'
 import fb, { db } from '../../firebase'
 import { Link, useNavigate } from 'react-router-dom'
+import { deleteDoc, doc } from 'firebase/firestore'
 
 function UserLogout() {
 
@@ -45,6 +46,20 @@ function UserLogout() {
           fb.auth().signOut()
       }
 
+      const deletUser = async () =>{
+        try{
+          if(window.confirm("Are you sure you want to delete your account?")){
+            await deleteDoc(doc(db,"users",fb.auth(user).currentUser.uid)).then(()=>{
+              fb.auth().currentUser.delete()
+              fb.auth().signOut()
+            })
+          }
+
+        }catch(err){
+          console.log(err)
+        }
+      }
+
   return (
     <div className="logoutcomponent">
         <div className="headerLog">
@@ -73,6 +88,12 @@ function UserLogout() {
           <li><label style={{marginRight:"0.5em"}}>Date:</label> {date}</li>
           <li><label style={{marginRight:"0.5em"}}>Unic Code:</label> {unic}</li>
         </ul>
+        <div className="btn-div">
+          <Link to="/userform">
+            <button className="btn-mod">Modify</button>
+          </Link>
+          <button className="btn-sup" onClick={deletUser}>Delete</button>
+        </div>
         </div>
       }
 
