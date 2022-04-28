@@ -15,7 +15,8 @@ function DashBoardScreen({getUserId,userId}) {
     const initialFieldValues = {
       status:"",
       recom:"",
-      icon:""
+      icon:"",
+      cost:"",
     }
     const [user,setUser] = useState("")
     const navigate = useNavigate()
@@ -140,9 +141,10 @@ function DashBoardScreen({getUserId,userId}) {
                               <option value="Done">Done</option>
                             </select>
                           </div>
+                          <input type='number' name="cost" value={values.cost} placeholder="Cost" onChange={handleChange} className="inputUser" required/>
                           </form>
                           <div className="recommendation-btn">
-                            <button onClick={()=>EditUser(user.id,{status:values.status,recom:values.recom,icon:values.icon})}>Modify</button>
+                            <button onClick={()=>EditUser(user.id,{status:values.status,recom:values.recom,icon:values.icon,cost:values.cost})}>Modify</button>
                             <button onClick={()=>deletUser(user.id)}>Delete</button>
                           </div>
                         </div>

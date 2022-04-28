@@ -16,12 +16,28 @@ function UserLogout() {
   const [date,setDate] = useState("")
   const navigate = useNavigate()
 
+  const addrepo = () =>{
+    db.collection('users').doc(fb.auth().currentUser.uid).collection("oldRepo").add({...user,firstname,tell,type,desc,unic,etat,date})
+
+  }
+
+  const [users,setUsers] = useState([])
 
     const authListener = ()=>{
       fb.auth().onAuthStateChanged((user)=>{
         if(user)
         {
           setUser(user)
+
+          const refe = db.collection(`users/${fb.auth().currentUser.uid}/oldRepo`)
+            refe.onSnapshot(snapshot => {
+                const Arrayusers = []
+                snapshot.forEach(doc => {
+                  Arrayusers.push({...doc.data(),id:doc.id})
+                })
+                setUsers(Arrayusers)
+            })
+
           db.collection('users').doc(fb.auth().currentUser.uid).get().then((doc)=>{
             setUser(doc.data())
             setFirstname(doc.data().firstname)
@@ -46,7 +62,9 @@ function UserLogout() {
           fb.auth().signOut()
       }
 
-      const deletUser = async () =>{
+
+
+/*       const deletUser = async () =>{
         try{
           if(window.confirm("Are you sure you want to delete your account?")){
             await deleteDoc(doc(db,"users",fb.auth(user).currentUser.uid)).then(()=>{
@@ -58,7 +76,7 @@ function UserLogout() {
         }catch(err){
           console.log(err)
         }
-      }
+      } */
 
   return (
     <div className="logoutcomponent">
@@ -77,22 +95,55 @@ function UserLogout() {
                 </div>
               </div>
           </div>:
-
         <div className="info-user">
-        <ul>
-          <li><label style={{marginRight:"0.5em"}}>Email:</label>{user.email}</li>
-          <li><label style={{marginRight:"0.5em"}}>Phone Number:</label>{tell}</li>
-          <li><label style={{marginRight:"0.5em"}}>Type:</label>{type}</li>
-          <li><label style={{marginRight:"0.5em"}}>State:</label>{etat}</li>
-          <li><label style={{marginRight:"0.5em"}}>Description:</label>{desc}</li>
-          <li><label style={{marginRight:"0.5em"}}>Date:</label> {date}</li>
-          <li><label style={{marginRight:"0.5em"}}>Unic Code:</label> {unic}</li>
-        </ul>
+          <table>
+            <tr>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Details</th>
+              <th>Cost</th>
+              <th>Recommended</th>
+            </tr>
+            <tr>
+              <td>{date}</td>
+              <td>{user.status}</td>
+              <td>
+                {type}
+                <br/>
+                {etat}
+              </td>
+              <td>{user.cost}DH</td>
+              <td>{user.recom}</td>
+            </tr>
+          </table>
+          {users.map((item)=>{
+            return(
+              <table key={item.id}>
+              <tr>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Details</th>
+                <th>Cost</th>
+                <th>Recommended</th>
+              </tr>
+              <tr>
+                <td>{item.date}</td>
+                <td>{item.status}</td>
+                <td>
+                  {item.type}
+                  <br/>
+                  {item.etat}
+                </td>
+                <td>{item.cost}DH</td>
+                <td>{item.recom}</td>
+              </tr>
+            </table>
+            )
+          })}
         <div className="btn-div">
           <Link to="/userform">
-            <button className="btn-mod">Modify</button>
+            <button className="btn-mod" onClick={addrepo}>Add New Report</button>
           </Link>
-          <button className="btn-sup" onClick={deletUser}>Delete</button>
         </div>
         </div>
       }

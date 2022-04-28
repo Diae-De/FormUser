@@ -7,6 +7,7 @@ import UserDashBoardlogin from './screens/userdashboardlogin/UserDashBoardlogin'
 import UserLogout from './screens/userdashboardlogout/UserLogout';
 import ResetPassUser from './components/ResetPassUser';
 import ManagerAccount from './screens/manageraccount/ManagerAccount';
+import MapData from './screens/MapData';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<UserLogout/>} />
           <Route path="/manager" element={<ManagerAccount/>} />
           <Route path="/resetpass" element={<ResetPassUser/>} />
+          <Route path="/test" element={<MapData/>} />
         </Routes>
       </Router>
     </div>
