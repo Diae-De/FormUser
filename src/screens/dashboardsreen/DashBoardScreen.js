@@ -6,7 +6,7 @@ import {IoIosArrowDown,IoIosArrowUp} from 'react-icons/io'
 import {doc,deleteDoc,setDoc, updateDoc} from 'firebase/firestore'
 import {MdCloudDone} from 'react-icons/md'
 import {AiFillCloseCircle} from 'react-icons/ai'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function DashBoardScreen({getUserId,userId}) {
 
@@ -20,6 +20,7 @@ function DashBoardScreen({getUserId,userId}) {
     }
     const [user,setUser] = useState("")
     const navigate = useNavigate()
+    
 
     const authListener = ()=>{
       fb.auth().onAuthStateChanged((user)=>{
@@ -40,6 +41,7 @@ function DashBoardScreen({getUserId,userId}) {
     const [searchTerm,setSearchTerm] = useState("")
 
     const [users,setUsers]=useState([])
+ 
     const [loading,setLoading] = useState(false)
     const refe = fb.firestore().collection("users")
 
@@ -56,6 +58,7 @@ function DashBoardScreen({getUserId,userId}) {
               Arrayusers.push({...doc.data(),id:doc.id})
             })
             setUsers(Arrayusers)
+            setValues(initialFieldValues)
             setLoading(false)
         })
     }
@@ -89,6 +92,7 @@ function DashBoardScreen({getUserId,userId}) {
   const EditUser = async (id,updates) =>{
     db.collection("users").doc(id).update(updates)
   }
+
 
   return (
     <div className="dashboard">
@@ -144,6 +148,11 @@ function DashBoardScreen({getUserId,userId}) {
                           <input type='number' name="cost" value={values.cost} placeholder="Cost" onChange={handleChange} className="inputUser" required/>
                           </form>
                           <div className="recommendation-btn">
+                            <Link to="/userform" style={{textDecoration:"none"}}>
+                              {!user.desc ? <button onClick={()=> db.collection('users').doc(user.id).set({...user})} className="addBtn">Add user</button>: 
+                              <button onClick={()=> db.collection('users').doc(user.id).collection("oldRepo").add({...user})} className="addBtn">Add user</button>
+                              }
+                            </Link>
                             <button onClick={()=>EditUser(user.id,{status:values.status,recom:values.recom,icon:values.icon,cost:values.cost})}>Modify</button>
                             <button onClick={()=>deletUser(user.id)}>Delete</button>
                           </div>

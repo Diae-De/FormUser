@@ -11,8 +11,8 @@ function HomeScreen() {
   const form = useRef();
   const navigate = useNavigate()
   const [user,setUser] = useState("")
-  const [password,setPassword] = useState("")
-  const [email,setEmail] = useState("")
+  const [users,setUsers] = useState([])
+  const [usersUid,setusersUid] = useState([])
   const [drop,setDrop] = useState("")
   const [tell,setTell] = useState("")
   const [type,setType] = useState("")
@@ -20,6 +20,9 @@ function HomeScreen() {
   const [unic,setUnic] = useState(randomString(5))
   const [etat,setEtat] = useState("")
   const [date,setDate] = useState("")
+  const [status,setStatus] = useState("")
+  const [cost,setCost] = useState("")
+  const [recom,setRecom] = useState("")
 
   function randomString(string_length) {
     var random_string = ""
@@ -32,7 +35,7 @@ function HomeScreen() {
 
   const handleFormSubmit = (e)=>{
     e.preventDefault()
-    fb.firestore().collection('users').doc(user.uid).update({
+    fb.firestore().collection('users').doc(usersUid).update({
         drop:drop,
         tell:tell,
         type:type,
@@ -40,8 +43,11 @@ function HomeScreen() {
         desc:desc,
         unic:unic,
         date:date,
+        status:status,
+        cost:cost,
+        recom:recom
       })
-      navigate("/")
+      navigate("/dashboard")
     }
   
 
@@ -50,6 +56,14 @@ function HomeScreen() {
       if(user)
       {
         setUser(user)
+        const refe = db.collection(`users/${users}`)
+        refe.onSnapshot(snapshot => {
+            const Arrayusers = []
+            snapshot.forEach(doc => {
+              Arrayusers.push({...doc.data(),id:doc.id})
+            })
+            setUsers(Arrayusers)
+        })
       }else {setUser("")
       navigate("/signin")}
     })
@@ -63,7 +77,13 @@ function HomeScreen() {
     <div className="Wrapflex">
         <h1>Let us know More about you!</h1>
     <div className="home-form">
-        <form ref={form} onSubmit={handleFormSubmit} className="fillup-form">
+        <form ref={form} className="fillup-form" onSubmit={handleFormSubmit}>
+          <select name="usersEmail" className="select-user-email" value={usersUid} onChange={(e)=>setusersUid(e.target.value)}>
+            <option value="" disabled>Select user email</option>
+            {users.map((user,index)=>{
+              return <option key={index} value={user.id}>{user.id}</option>
+            })}
+          </select>
         <select name="drop" className="select-drop" value={drop} onChange={(e)=>setDrop(e.target.value)} required>
           <option value="" disabled>Chose Your Plane</option>
           <option value="Society">Society</option>

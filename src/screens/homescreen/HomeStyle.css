@@ -128,6 +128,20 @@
     margin-top: 1em;
 }
 
+.select-user-email{
+    width: 20em;
+    height: 100%;
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Akshar', sans-serif;
+    color: #000;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 1em;
+}
+
 select{
     box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
     border: none;

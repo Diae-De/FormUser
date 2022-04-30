@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import './UserLogout.css'
 import fb, { db } from '../../firebase'
 import { Link, useNavigate } from 'react-router-dom'
-import { deleteDoc, doc } from 'firebase/firestore'
 
 function UserLogout() {
 
@@ -15,11 +14,6 @@ function UserLogout() {
   const [etat,setEtat] = useState("")
   const [date,setDate] = useState("")
   const navigate = useNavigate()
-
-  const addrepo = () =>{
-    db.collection('users').doc(fb.auth().currentUser.uid).collection("oldRepo").add({...user,firstname,tell,type,desc,unic,etat,date})
-
-  }
 
   const [users,setUsers] = useState([])
 
@@ -62,8 +56,6 @@ function UserLogout() {
           fb.auth().signOut()
       }
 
-
-
 /*       const deletUser = async () =>{
         try{
           if(window.confirm("Are you sure you want to delete your account?")){
@@ -87,9 +79,6 @@ function UserLogout() {
         {!type?
           <div className="info-sec">
               <div className="wrap-msg">
-                <Link to="/userform">
-                <button className='btn-addinfo'>Add Your Info</button>
-                </Link>
                 <div className="ops-msg">
                   <h1>Ooops! Nothing to see here yet.</h1>
                 </div>
@@ -113,12 +102,12 @@ function UserLogout() {
                 {etat}
               </td>
               <td>{user.cost}DH</td>
-              <td>{user.recom}</td>
+              <td style={{width:"200px"}}>{user.recom}</td>
             </tr>
           </table>
-          {users.map((item)=>{
+          {users.map((user)=>{
             return(
-              <table key={item.id}>
+              <table key={user.id}>
               <tr>
                 <th>Date</th>
                 <th>Status</th>
@@ -127,24 +116,19 @@ function UserLogout() {
                 <th>Recommended</th>
               </tr>
               <tr>
-                <td>{item.date}</td>
-                <td>{item.status}</td>
+                <td>{user.date}</td>
+                <td>{user.status}</td>
                 <td>
-                  {item.type}
+                  {user.type}
                   <br/>
-                  {item.etat}
+                  {user.etat}
                 </td>
-                <td>{item.cost}DH</td>
-                <td>{item.recom}</td>
+                <td>{user.cost}DH</td>
+                <td>{user.recom}</td>
               </tr>
             </table>
             )
           })}
-        <div className="btn-div">
-          <Link to="/userform">
-            <button className="btn-mod" onClick={addrepo}>Add New Report</button>
-          </Link>
-        </div>
         </div>
       }
 
