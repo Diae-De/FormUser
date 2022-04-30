@@ -183,21 +183,37 @@ h3{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
 }
 
-.searchbar input{
+.usersearch-wrap{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.seachbardfunc{
     margin-top:1em;
-    width: 15em;
+    margin-bottom: 1em;
     border: 1px solid grey;
+    width: 20em;
     height: 100%;
     background: #fff;
     border-radius: 5px;
     padding: 10px;
+    padding-left: 2em;
     font-size: 16px;
     font-family: 'Akshar', sans-serif;
     color: #000;
     outline: none;
     cursor: pointer;
+}
+
+.searchicon{
+    position: absolute;
+    color: gray;
+    margin-left: 10px;
 }
 
 @media screen and (max-width:500px) {

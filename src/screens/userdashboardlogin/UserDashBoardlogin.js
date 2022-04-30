@@ -3,6 +3,8 @@ import "./UserDashBoardlogin.css"
 import image from "../../images/devicesbackground.jpg"
 import { Link, useNavigate } from 'react-router-dom';
 import fb from '../../firebase'
+import {AiOutlineUser} from "react-icons/ai"
+import {MdPassword} from "react-icons/md"
 
 function UserDashBoardlogin() {
 
@@ -59,9 +61,15 @@ function UserDashBoardlogin() {
         <div className="userForm">
         <h1 className="login-head">Sign In</h1>
             <form ref={Userform} onSubmit={handleLogin} className="form-for-all-users">
-                  <input type="email" name="email" value={email} onChange={(e)=>setEmail(e.target.value)} className="login-input" placeholder="Enter Your Email" required autoFocus/>
-                  <p className="errmsg">{emailErr}</p>
-                  <input type="password" name="password" value={password} onChange={(e)=>setPassword(e.target.value)} className="login-input" placeholder="Enter Your Password" required/>
+              <div className="usericon-wrap">
+                <AiOutlineUser className="usericon"/>
+                <input type="email" name="email" value={email} onChange={(e)=>setEmail(e.target.value)} className="login-input" placeholder="Enter Your Email" required autoFocus/>
+              </div>
+                  <p className="errmsg" style={{width:"50%"}}>{emailErr}</p>
+              <div className="usericon-wrap">
+                <MdPassword className="usericon"/>
+                <input type="password" name="password" value={password} onChange={(e)=>setPassword(e.target.value)} className="login-input" placeholder="Enter Your Password" required/>
+              </div>
                   <p className="errmsg">{passwordErr}</p>
                   <button className="login-button">Sign In</button>
             </form>

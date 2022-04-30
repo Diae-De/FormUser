@@ -7,6 +7,7 @@ import {doc,deleteDoc,setDoc, updateDoc} from 'firebase/firestore'
 import {MdCloudDone} from 'react-icons/md'
 import {AiFillCloseCircle} from 'react-icons/ai'
 import { Link, useNavigate } from 'react-router-dom'
+import {BiSearchAlt} from 'react-icons/bi'
 
 function DashBoardScreen({getUserId,userId}) {
 
@@ -98,11 +99,14 @@ function DashBoardScreen({getUserId,userId}) {
     <div className="dashboard">
         <div className="dashboard-user">
           <div className="header">
-            <h1 className="dashboard-header">Your DashBoard</h1>
+            <h1 className="dashboard-header">Admin DashBoard</h1>
             <button className="logout-btn" onClick={logout}>Logout</button>
           </div>
           <div className="searchbar">
-            <input type="text" placeholder="Search..." onChange={(e)=>{setSearchTerm(e.target.value)}}/>
+          <div className="usersearch-wrap">
+            <BiSearchAlt className="searchicon"/>
+            <input type="text" className="seachbardfunc" placeholder="Search..." onChange={(e)=>{setSearchTerm(e.target.value)}} autoFocus/>
+          </div>
           </div>
           <div className="userInfo">
             {users.filter((val)=>{

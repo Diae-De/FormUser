@@ -15,6 +15,14 @@
     height: 100%;
 }
 
+.managerForm form{
+    display:flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 .managerForm p{
     font-family: 'Akshar', sans-serif;
 }

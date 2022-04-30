@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import image from "../../images/devicesbackground.jpg"
 import fb from '../../firebase';
 import './ManagerAccount.css';
+import {AiOutlineUser} from "react-icons/ai"
+import {MdPassword} from "react-icons/md"
 
 function ManagerAccount() {
 
@@ -59,10 +61,16 @@ function ManagerAccount() {
         <div className="managerForm">
         <h1 className="login-head">Administrator</h1>
             <form ref={Userform} onSubmit={handleLogin} className="form-for-all-users">
-                  <input type="email" name="email" value={email} onChange={(e)=>setEmail(e.target.value)} className="login-input" placeholder="Enter Your Email" required autoFocus/>
+              <div className="usericon-wrap">
+                <AiOutlineUser className="usericon"/>
+                <input type="email" name="email" value={email} onChange={(e)=>setEmail(e.target.value)} className="login-input" placeholder="Enter Your Email" required autoFocus/>
+              </div>
                   <p className="errmsg">{emailErr}</p>
-                  <input type="password" name="password" value={password} onChange={(e)=>setPassword(e.target.value)} className="login-input" placeholder="Enter Your Password" required/>
-                  <p className="errmsg">{passwordErr}</p>
+              <div className="usericon-wrap">
+                <MdPassword className="usericon"/>
+                <input type="password" name="password" value={password} onChange={(e)=>setPassword(e.target.value)} className="login-input" placeholder="Enter Your Password" required/>
+              </div>
+                  <p className="errmsg" style={{width:"60%"}}>{passwordErr}</p>
                   {email === "admin@gmail.com" ? <button className="login-button">Sign In</button> : ""}
                   
             </form>

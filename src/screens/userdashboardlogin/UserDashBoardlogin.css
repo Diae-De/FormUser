@@ -18,9 +18,9 @@
 .login-input{
     font-family: 'Akshar', sans-serif;
     padding: 0.8em;
+    padding-left: 35px;
     border:none;
     box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-    margin-bottom: 1.5em;
     border-radius: 5px;
     width: 100%;
     height: 3em;
@@ -57,7 +57,7 @@
     box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
     margin-bottom: 1.5em;
     border-radius: 5px;
-    width: 100%;
+    width: 14.5em;
     height: 3em;
     font-size: 1em;
     background-color: #00bcd4;
@@ -68,6 +68,19 @@
 
 .login-button:hover{
     background-color: #00acc1;
+}
+
+.usericon-wrap{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5em;
+}
+
+.usericon{
+    position: absolute;
+    color: gray;
+    margin-left: 10px;
 }
 
 @media screen and (max-width:800px) {
