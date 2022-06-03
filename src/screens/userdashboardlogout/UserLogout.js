@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './UserLogout.css'
 import fb, { db } from '../../firebase'
 import { Link, useNavigate } from 'react-router-dom'
+import { useReactToPrint } from 'react-to-print';
 
 function UserLogout() {
 
@@ -56,6 +57,14 @@ function UserLogout() {
           fb.auth().signOut()
       }
 
+      const totals =()=>{
+        let total = parseInt(user.cost)
+        users.forEach((item)=>{
+          total += parseInt(item.cost)
+        })
+        return total
+      }
+
 /*       const deletUser = async () =>{
         try{
           if(window.confirm("Are you sure you want to delete your account?")){
@@ -69,6 +78,12 @@ function UserLogout() {
           console.log(err)
         }
       } */
+      
+      const componentRef = useRef();
+      const handlePrint = useReactToPrint({
+        content:()=>componentRef.current,
+        pageStyle:"@page { margin: 0; }",
+      })
 
   return (
     <div className="logoutcomponent">
@@ -84,7 +99,7 @@ function UserLogout() {
                 </div>
               </div>
           </div>:
-        <div className="info-user">
+        <div className="info-user" ref={componentRef}>
           <table>
             <tr>
               <th>Date</th>
@@ -129,6 +144,11 @@ function UserLogout() {
             </table>
             )
           })}
+          <div className="printwrap">
+            <p className="total">Total: {totals()} </p>
+            <button className="print-btn" onClick={handlePrint}>Print</button>
+          </div>
+
         </div>
       }
 
