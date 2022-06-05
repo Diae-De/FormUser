@@ -44,7 +44,7 @@ function UserLogout() {
             setDate(doc.data().date)
           })
         }else {setUser("")
-        navigate("/signin")}
+        navigate("/")}
       })
     }
 

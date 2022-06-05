@@ -46,7 +46,7 @@ function UserDashBoardlogin() {
         if(user)
         {
           setUser(user)
-          navigate("/")
+          navigate("/userdashboard")
         }else setUser("")
       })
     }

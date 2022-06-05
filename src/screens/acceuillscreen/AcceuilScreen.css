@@ -1,0 +1,383 @@
+.headerAcceuil{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2em;
+    font-family: 'Akshar', sans-serif;
+    text-transform: uppercase;
+}
+
+.headerAcceuil h1{
+    font-size: 2.3em;
+    color:#392057;
+}
+
+.headerAcceuil .btn_signin{
+    font-family: 'Akshar', sans-serif;
+    padding: 0.8em;
+    border:none;
+    border:1px solid #392057;
+    width: 10em;
+    height: 3em;
+    font-size: 0.8em;
+    background-color: transparent;
+    color: #392057;
+    transition: all 250ms ease-in-out;
+    cursor: pointer;
+}
+
+.btn_signin:hover{
+    background: #B4B2F4;
+    color: #392057;
+}
+
+/* .imgAcceuil .imgAcceu{
+    object-fit: cover;
+    width: 100%;
+    height: 90vh;
+    position: absolute;
+    z-index: 1;
+} */
+
+/* .imgAcceuil::before{
+    content: "";
+    background: black;
+    position: absolute;
+    width: 100%;
+    height: 90vh;
+    z-index: 2;
+    opacity: 0.2;
+} */
+
+.imgAcceuil{
+    position: relative;
+}
+
+.wrapgridAcceuil{
+    backdrop-filter: blur(2px);
+    color: #392057;
+    font-family: 'Akshar', sans-serif;
+    z-index: 1000;
+    position: relative;
+    height: 90vh;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.ourserv p{
+    font-size: 2em;
+}
+
+.ourserv h1{
+    font-size: 4em;
+    margin-bottom: 1em;
+}
+
+.ourserv .btnabout{
+    font-family: 'Akshar', sans-serif;
+    border: 2px solid #392057;
+    padding: 1em 2em;
+    font-size: 1em;
+    color: #392057;
+    margin-top: 2em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 250ms;
+}
+
+.ourserv .btnabout:hover{
+    background: #B4B2F4;
+    color: #392057;
+}
+
+.ourservies h1{
+    margin-top: 2em;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.ourservies{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center ;
+    color: #392057;
+}
+
+.Allservice{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin: 2em;
+    margin-top: 4em;
+}
+
+.Allservice h3{
+    font-family: 'Akshar', sans-serif;
+    text-transform: uppercase;
+}
+
+.Allservice p{
+    margin-top: 1em;
+    font-family: 'Quicksand', sans-serif;
+    width: 50%;
+    text-align: center;
+}
+
+.iconserv{
+    font-size: 2em;
+    color: #392057;
+}
+
+.flexwrapacc{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.aboutacc{
+    background: url("../../images/background.png") no-repeat center center / cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 5em 0;
+    padding: 2em;
+    color:#fff;
+}
+
+.aboutusacc{
+    margin-bottom: 2em;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.aboutusparaac{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1em;
+    text-align: center;
+    width: 50%;
+}
+
+.flexwrapacc p{
+    color: #a09dff;
+}
+
+.flexwrapacc h3{
+    color: #392057;
+}
+
+.firstimg img{
+    width: 50px;
+}
+
+.allpartimg{
+    position: relative;
+    margin-right: 1em;
+}
+
+.mainpart{
+    width: 100%;
+}
+
+.firstpart{
+    animation: move-up 2s infinite alternate;
+    width: 10%;
+    position: absolute;
+    margin-left: -42em;
+}
+
+@keyframes move-up {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(2rem);
+    }
+  }
+
+  @keyframes move-down {
+    from {
+      transform: translateY(2rem);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes move-right {
+    from {
+      transform: translateX(2rem);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+.secondpart{
+    width: 12%;
+    animation: move-right 2s infinite alternate;
+    position: absolute;
+    margin-left: -12em;
+    margin-top: 10em;
+}
+
+.thirdpart{
+    width: 15%;
+    position: absolute;
+    margin-left: -28em;
+    margin-top: 3em;
+    animation: move-down 2s infinite alternate;
+}
+
+.fourthpart{
+    width: 20%;
+    position: absolute;
+    margin-left: -40em;
+    margin-top: 10em;
+    animation :move-left 2s infinite alternate;
+}
+
+@keyframes move-left{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-2rem); 
+    }
+}
+
+@media screen and (max-width:1300px) {
+    .firstpart{
+        margin-left: -30em;
+    }
+
+    .secondpart{
+        margin-left: -10em;
+        margin-top: 8em;
+    }
+
+    .thirdpart{
+        margin-left: -17em;
+        margin-top: 2em;
+    }
+
+    .fourthpart{
+        margin-left: -22em;
+        margin-top: 8em;
+    }
+
+    .flexwrapacc h3{
+        text-align: center;
+    }
+
+    .ourserv h1{
+        font-size: 3em;
+    }
+}
+
+@media screen and (max-width:900px){
+    .firstpart{
+        margin-left: -20em;
+    }
+
+    .secondpart{
+        margin-left: -7em;
+        margin-top: 5em;
+    }
+
+    .thirdpart{
+        margin-left: -12em;
+        margin-top: 1em;
+    }
+
+    .fourthpart{
+        margin-left: -17em;
+        margin-top: 5em;
+    }
+}
+
+@media screen and (max-width:750px){
+    .wrapgridAcceuil{
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .Allservice{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .flexwrapacc{
+        margin-top: .5em;
+    }
+
+    .flexwrapacc p{
+        width: 100%;
+    }
+
+    .aboutusparaac{
+        width: 90%;
+    }
+
+    .mainpart{
+        width: 90%;
+    }
+
+    .firstpart{
+        margin-left: -30em;
+    }
+
+    .secondpart{
+        margin-left: -10em;
+        margin-top: 7em;
+    }
+
+    .thirdpart{
+        margin-left: -17em;
+        margin-top: 1em;
+    }
+
+    .fourthpart{
+        margin-left: -22em;
+        margin-top: 7em;
+    }
+    
+}
+
+@media screen and (max-width:414px) {
+    .ourserv h1{
+        font-size: 2em;
+    }
+
+    .ourserv p{
+        font-size: 1.5em;
+    }
+
+    .headerAcceuil h1{
+        font-size: 2em;
+    }
+
+    .firstpart{
+        margin-left: -20em;
+    }
+
+    .secondpart{
+        margin-left: -7em;
+        margin-top: 4em;
+    }
+
+    .thirdpart{
+        margin-left: -9em;
+        margin-top:0.5em;
+    }
+
+    .fourthpart{
+        margin-left: -14em;
+        margin-top: 5em;
+    }
+
+    .Allservice{
+        grid-template-columns: repeat(1,1fr);
+    }
+}

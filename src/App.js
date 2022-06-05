@@ -7,6 +7,7 @@ import UserDashBoardlogin from './screens/userdashboardlogin/UserDashBoardlogin'
 import ResetPassUser from './components/ResetPassUser';
 import ManagerAccount from './screens/manageraccount/ManagerAccount';
 import UserWLogout from './components/UserWLogout';
+import Acceuil from './components/Acceuil';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
           <Route path="/signup" element={<UserDashBoardSignUp/>} />
           <Route path="/userform" element={<Home/>} />
           <Route path="/dashboard" element={<DashBoard/>} />
-          <Route path="/" element={<UserWLogout/>} />
+          <Route path="/userdashboard" element={<UserWLogout/>} />
+          <Route path="/" element={<Acceuil/>} />
           <Route path="/manager" element={<ManagerAccount/>} />
           <Route path="/resetpass" element={<ResetPassUser/>} />
         </Routes>
