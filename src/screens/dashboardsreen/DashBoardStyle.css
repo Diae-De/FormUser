@@ -1,5 +1,5 @@
 .dashboard{
-    color: #fff;
+    color: #000;
     background: rgb(19, 19, 19);
     width: 100%;
     height: 100%;
@@ -7,6 +7,7 @@
 
 .dashboard-user{
     min-height: 100vh;
+    background: linear-gradient(to bottom,#9D50BB,#6E48AA);
 }
 
 .mapUser{
@@ -18,7 +19,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: #000;
     margin-top: 1em;
 }
 
@@ -49,7 +50,7 @@
     display: flex;
     font-family: 'Quicksand', sans-serif;
     justify-content: center;
-    background: rgb(26, 26, 26);
+    background: rgb(255, 255, 255);
     width: 100vh;
     height: 100%;
     border-radius: 5px;
@@ -69,6 +70,24 @@
     justify-content: space-between;
     align-items: center;
     padding: 2em;
+    background:rgb(255, 255, 255);
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.3) 0px -10px 20px 0px;
+}
+
+.logout-btn-admin{
+    border:2px solid #000;
+    padding:0.7em;
+    border-radius:5px;
+    background-color:transparent;
+    color:#000;
+    cursor: pointer;
+    font-size:1em;
+    transition: all 250ms ease-in-out;
+}
+
+.logout-btn-admin:hover{
+    background-color:#000;
+    color:#fff;
 }
 
 .dashboard-header{
@@ -89,6 +108,7 @@ ul li{
     justify-content: flex-start;
 }
 
+
 .icon-open{
     cursor: pointer;
     margin-top: 1em;
@@ -104,7 +124,7 @@ ul li{
 }
 
 .userlist-active{
-    background: rgb(26, 26, 26);
+    background: rgb(255, 255, 255);
     margin-top: 0em;
 }
 
@@ -158,11 +178,13 @@ h3{
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #9D50BB;
+    color: #fff;
 }
 
 .recommendation-btn button:hover{
-    background: transparent;
-    color: #fff;}
+    background: #fff;
+    color: #000;}
 
 .status-select{
     width: 15em;
@@ -196,18 +218,22 @@ h3{
 .seachbardfunc{
     margin-top:1em;
     margin-bottom: 1em;
-    border: 1px solid grey;
+    border: 1px solid rgba(128, 128, 128, 0.452);
     width: 20em;
     height: 100%;
     background: #fff;
-    border-radius: 5px;
+    border-radius: 20px;
     padding: 10px;
     padding-left: 2em;
     font-size: 16px;
     font-family: 'Akshar', sans-serif;
-    color: #000;
+    color: rgba(29, 29, 29, 0.493);
     outline: none;
     cursor: pointer;
+}
+
+.seachbardfunc::placeholder{
+    color: rgba(29, 29, 29, 0.493);
 }
 
 .searchicon{

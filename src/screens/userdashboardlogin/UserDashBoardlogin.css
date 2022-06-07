@@ -60,14 +60,14 @@
     width: 14.5em;
     height: 3em;
     font-size: 1em;
-    background-color: #00bcd4;
+    background-color: #a09dff;
     color: white;
     cursor: pointer;
     transition: all 250ms ease-in-out;
 }
 
 .login-button:hover{
-    background-color: #00acc1;
+    background-color: #392057;
 }
 
 .usericon-wrap{

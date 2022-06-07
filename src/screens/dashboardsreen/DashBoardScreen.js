@@ -3,9 +3,9 @@ import './DashBoardStyle.css'
 import fb from '../../firebase'
 import {db} from '../../firebase'
 import {IoIosArrowDown,IoIosArrowUp} from 'react-icons/io'
-import {doc,deleteDoc,setDoc, updateDoc} from 'firebase/firestore'
+import {doc,deleteDoc,setDoc, updateDoc, orderBy} from 'firebase/firestore'
 import {MdCloudDone} from 'react-icons/md'
-import {AiFillCloseCircle} from 'react-icons/ai'
+import {AiFillCloseCircle,AiFillHome} from 'react-icons/ai'
 import { Link, useNavigate } from 'react-router-dom'
 import {BiSearchAlt} from 'react-icons/bi'
 
@@ -21,7 +21,6 @@ function DashBoardScreen({getUserId,userId}) {
     }
     const [user,setUser] = useState("")
     const navigate = useNavigate()
-    
 
     const authListener = ()=>{
       fb.auth().onAuthStateChanged((user)=>{
@@ -69,7 +68,7 @@ function DashBoardScreen({getUserId,userId}) {
     },[])
 
   if(loading){
-    return <div style={{ background:"rgb(26, 26, 26)",width:"100%",height:"100vh"}}><h1 style={{color:"white",display:"flex",justifyContent:"center",fontFamily:"'Quicksand', sans-serif"}}>Loading...</h1></div>
+    return <div style={{ background:"linear-gradient(to bottom,#9D50BB,#6E48AA)",width:"100%",height:"100vh"}}><h1 style={{color:"white",display:"flex",justifyContent:"center",fontFamily:"'Quicksand', sans-serif"}}>Loading...</h1></div>
   }
 
   const deletUser = async (id) =>{
@@ -92,21 +91,20 @@ function DashBoardScreen({getUserId,userId}) {
 
   const EditUser = async (id,updates) =>{
     db.collection("users").doc(id).update(updates)
-  }
-
+  } 
 
   return (
     <div className="dashboard">
         <div className="dashboard-user">
           <div className="header">
-            <h1 className="dashboard-header">Admin DashBoard</h1>
-            <button className="logout-btn" onClick={logout}>Logout</button>
-          </div>
-          <div className="searchbar">
-          <div className="usersearch-wrap">
-            <BiSearchAlt className="searchicon"/>
-            <input type="text" className="seachbardfunc" placeholder="Search..." onChange={(e)=>{setSearchTerm(e.target.value)}} autoFocus/>
-          </div>
+            <h1 className="dashboard-header">DashBoard</h1>
+            <div className="searchbar">
+              <div className="usersearch-wrap">
+                <BiSearchAlt className="searchicon"/>
+                <input type="text" className="seachbardfunc" placeholder="Search..." onChange={(e)=>{setSearchTerm(e.target.value)}} autoFocus/>
+              </div>
+            </div>
+            <button className="logout-btn-admin" onClick={logout}>Logout</button>
           </div>
           <div className="userInfo">
             {users.filter((val)=>{

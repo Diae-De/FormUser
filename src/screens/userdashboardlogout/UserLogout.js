@@ -58,7 +58,7 @@ function UserLogout() {
       }
 
       const totals =()=>{
-        let total = parseInt(user.cost)
+        let total = parseInt(user.cost==""?0:user.cost)
         users.forEach((item)=>{
           total += parseInt(item.cost)
         })
@@ -100,6 +100,7 @@ function UserLogout() {
               </div>
           </div>:
         <div className="info-user" ref={componentRef}>
+          <h1>Latest</h1>
           <table>
             <tr>
               <th>Date</th>
@@ -120,32 +121,28 @@ function UserLogout() {
               <td style={{width:"200px"}}>{user.recom}</td>
             </tr>
           </table>
-          {users.map((user)=>{
-            return(
-              <table key={user.id}>
-              <tr>
+          <h1>History</h1>
+          <table className="container_info" key={user.id}>
+          <tr>
                 <th>Date</th>
                 <th>Status</th>
                 <th>Details</th>
                 <th>Cost</th>
                 <th>Recommended</th>
-              </tr>
+          </tr>
+          {users.map((user)=>{
+            return(
               <tr>
                 <td>{user.date}</td>
                 <td>{user.status}</td>
-                <td>
-                  {user.type}
-                  <br/>
-                  {user.etat}
-                </td>
+                <td>{user.etat}</td>
                 <td>{user.cost}DH</td>
                 <td>{user.recom}</td>
               </tr>
-            </table>
             )
-          })}
-          <div className="printwrap">
-            <p className="total">Total: {totals()} </p>
+          })} </table>
+          <div className="printwrapes">
+            <p className="total">Total: {totals()} DH</p>
             <button className="print-btn" onClick={handlePrint}>Print</button>
           </div>
 

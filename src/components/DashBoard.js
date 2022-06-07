@@ -13,7 +13,6 @@ function DashBoard() {
     console.log(status)
   }
 
-
   return (
     <div>
         <DashBoardScreen getUserId={getUserIdHandler} userId={userId} getStatus={getStatus}/>

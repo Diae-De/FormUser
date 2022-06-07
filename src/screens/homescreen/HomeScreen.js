@@ -79,7 +79,7 @@ function HomeScreen() {
     <div className="home-form">
         <form ref={form} className="fillup-form" onSubmit={handleFormSubmit}>
           <select name="usersEmail" className="select-user-email" value={usersUid} onChange={(e)=>setusersUid(e.target.value)}>
-            <option value="" disabled>Select user email</option>
+            <option value="" disabled>Select user Id</option>
             {users.map((user,index)=>{
               return <option key={index} value={user.id}>{user.id}</option>
             })}

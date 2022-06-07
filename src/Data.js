@@ -4,19 +4,19 @@ import {AiFillEye,AiOutlineCloudServer} from 'react-icons/ai'
 export const Data = [
     {
     icon: <FaTools/>,
-    title: "Maintenance informatique des PME",
-    des: "Maintenance intégrale de votre système informatique et assistance technique quotidienne."
+    title: "Computer maintenance for SMEs",
+    des: "Integral maintenance of your computer system and daily technical assistance."
     },
     
     {
         icon: <AiOutlineCloudServer/>,
-        title: "Infogérance de vos postes et serveurs",
-        des: "Nos équipes administrent votre SI, gèrent les incidents et répondent à vos demandes."
+        title: "Outsourcing of your workstations and servers",
+        des: "Our teams administer your IS, manage incidents and respond to your requests."
     },
 
     {
         icon: <AiFillEye/>,
-        title: "Supervision de votre parc informatique 24/7",
-        des: "Nos techniciens vérifient en continu le bon état de votre système informatique."
+        title: "24/7 supervision of your computer equipment",
+        des: "Our technicians continuously check the good condition of your computer system."
     },
 ]
